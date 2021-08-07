@@ -1,0 +1,76 @@
+
+
+<ul>
+{% for member in site.data.members %}
+  <li>
+    <a href="https://github.com/{{ member.github }}">
+      {{ member.name }}
+    </a>
+  </li>
+{% endfor %}
+</ul>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.4.31/example1/colorbox.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.4/css/swipebox.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.css" rel="stylesheet" media="all">
+    <!-- endbower -->
+    <style media="screen">
+      #cboxTitle {
+        position: absolute;
+        bottom: 25px !important;
+        left: 0px;
+        text-align:center !important;
+        width: 100% !important;
+        font-weight: bold;
+        background-color:#333 !important;
+        opacity:0.75 !important;
+        filter:alpha(opacity=75) !important;
+        color:#fff !important;
+        word-break: break-word !important;
+        margin-right: 0px;
+        margin-left: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Captions test</h1>
+    <p>look at the first caption!</p>
+    <!-- TODO this test could be automated -->
+    <div id="customcaptiontest" class="justified-gallery">
+      {% for post in site.data.instagramdata %}
+     
+          <a href="{{ post.media_url }}" title="{{post.caption}}">
+            <img src="{{ post.media_url }}" />
+          </a>
+      
+      {% endfor %}
+
+    </div>
+
+    <!-- bower:js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.4.31/jquery.colorbox.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.4/js/jquery.swipebox.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.js"></script>
+    <!-- endbower -->
+    <script>
+    $("#customcaptiontest").justifiedGallery({lastRow : 'nojustify',rowHeight : 200 ,margins : 3,captions : false}).on('jg.complete', function () {
+    $(this).find('a').colorbox({
+        maxWidth : '80%',
+        maxHeight : '80%',
+        opacity : 0.8,
+        transition : 'elastic',
+        current : ''
+    });
+});
+    </script>
+
+</body>
+
+</html>
