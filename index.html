@@ -32,6 +32,7 @@
     <p>look at the first caption!</p>
     <!-- TODO this test could be automated -->
     <div id="customcaptiontest" class="justified-gallery">
+        {{site.data}}
       {% for post in site.data.instagramdata %}
             {{ post | inspect }} 
           <a href="{{ post.media_url }}" title="{{post.caption}}">
