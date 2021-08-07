@@ -8,6 +8,6 @@ print(response.json())
 
 response = requests.get("https://graph.instagram.com/me/media?fields=id,caption,media_url,permalink,media_type&access_token="+access_token)
 
-out_file = open("test.json", "w")
+out_file = open("_data/instagramdata.json", "w")
 #j = json.loads(response.json())
 out_file.write(json.dumps(response.json()['data'],indent=2))
