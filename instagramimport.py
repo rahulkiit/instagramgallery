@@ -10,4 +10,4 @@ response = requests.get("https://graph.instagram.com/me/media?fields=id,caption,
 
 out_file = open("_data/instagramdata.json", "w")
 #j = json.loads(response.json())
-out_file.write(json.dumps(response.json()['data'],indent=2))
+out_file.write(json.dumps(response.json()['data'], ensure_ascii=True, indent=None))
